@@ -1,0 +1,29 @@
+﻿<!-- Index.cshtml w folderze Views/Home -->
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h2>Proszę wybrać interesujący cię szyfr:</h2>
+        <p>Kliknij przycisk poniżej, aby przejść do szyfru Cezara.</p>
+        <a asp-controller="Cezar" asp-action="Index"><button>Szyfr Cezara</button></a>
+    </div>
+
+<br />
+
+    <div class="container">
+        
+        <p>Kliknij przycisk poniżej, aby przejść do szyfru Polibiusza.</p>
+        <a asp-controller="Polybius" asp-action="Index"><button>Szyfr Polibiusza</button></a>
+    </div>
+</body>
+</html>

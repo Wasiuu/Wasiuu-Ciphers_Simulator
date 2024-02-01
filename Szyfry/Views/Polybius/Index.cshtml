@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Polybius Cipher";
+}
+
+<h2>Szyfr polibiusza</h2>
+
+<form asp-controller="Polybius" asp-action="Encrypt" method="post">
+    <label for="inputText">Wprowadź tekst do szyfracji:</label>
+    <input type="text" name="inputText" id="inputText" required />
+    <button type="submit">Szyfruj</button>
+</form>
+
+@if (ViewBag.EncryptedText != null)
+{
+        <div>
+            <h3>Zaszyfrowany tekst:</h3>
+            <p>@ViewBag.EncryptedText</p>
+        </div>
+}
+<br />
+<form asp-controller="Polybius" asp-action="Decrypt" method="post">
+    <label for="encryptedText">Wprowadź tekst do deszyfracji:</label>
+    <input type="text" name="inputText" id="encryptedText" required />
+    <button type="submit">Deszyfruj</button> 
+    @Html.ActionLink("Wróć do strony głównej", "Index", "Home", null, new { @class = "btn-link" })
+</form>
+
+
+@if (ViewBag.DecryptedText != null)
+{
+        <div>
+            <h3>Zdeszyfrowany tekst:</h3>
+            <p>@ViewBag.DecryptedText</p>
+        </div>
+}

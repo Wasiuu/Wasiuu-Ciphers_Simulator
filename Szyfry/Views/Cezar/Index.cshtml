@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Cezar Cipher Simulator";
+}
+
+<h2>Symulator szyfru Cezara:</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+</head>
+
+@using (Html.BeginForm("Encrypt", "Cezar", FormMethod.Post))
+
+
+{
+    <h3>Szyfrowanie</h3>
+    <div>
+        <label for="inputText">Wprowadź tekst do szyfracji:</label>
+        <input type="text" name="inputText" required />
+    </div>
+    <div>
+        <label for="shift">Przesunięcie:</label>
+        <input type="number" name="shift" required />
+    </div>
+    <button type="submit">Szyfruj</button>
+}
+
+
+@using (Html.BeginForm("Decrypt", "Cezar", FormMethod.Post))
+{
+    <h3>Deszyfrowanie</h3>
+    <div>
+        <label for="inputText">Wprowadz tekst do deszyfracji:</label>
+        <input type="text" name="inputText" required />
+    </div>
+    <div>
+        <label for="shift">Przesunięcie:</label>
+        <input type="number" name="shift" required />
+        <button type="submit">Deszyfruj</button>
+        @Html.ActionLink("Wróć do strony głównej", "Index", "Home", null, new { @class = "btn-link" })
+    </div>
+    
+}
+
+@if (ViewBag.EncryptedText != null)
+{
+    <div>
+        <h4>Zaszyfrowany tekst:</h4>
+        <p>@ViewBag.EncryptedText</p>
+    </div>
+}
+
+@if (ViewBag.DecryptedText != null)
+{
+    <div>
+        <h4>Zdeszyfrowany tekst:</h4>
+        <p>@ViewBag.DecryptedText</p>
+    </div>
+}
+
+
+
